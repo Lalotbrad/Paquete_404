@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+
 public class Jugador : MonoBehaviour
 {
     public InputActionReference moverse;
@@ -11,26 +12,27 @@ public class Jugador : MonoBehaviour
     public int saltos;
     public float velocidad = 4f;
     public float radioGolpe = 1f;
+    public int dano = 25;
     Rigidbody2D rb;
 
     public Transform golpe;
 
-    public GameObject vidaE;
-    private Enemigo1 vidaEnemigo;
+    private PoderJugador poderJugador;
 
     Animator animator;
     void Awake()
     {
         //animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        vidaEnemigo = vidaE.GetComponent<Enemigo1>();
+        poderJugador = GetComponent<PoderJugador>();
     }
-
-
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireSphere(golpe.position, radioGolpe);
+        if (golpe != null)
+        {
+            Gizmos.DrawWireSphere(golpe.position, radioGolpe);
+        }
     }
 
     void Update()
@@ -43,7 +45,7 @@ public class Jugador : MonoBehaviour
 
         else if (input.x < 0) transform.localScale = new Vector3(-1, 1, 1);
 
-       // animator.SetBool("Correr", input.x != 0);    error no usar
+        // animator.SetBool("Correr", input.x != 0);    error no usar
 
         if (saltar.action.WasPressedThisFrame() && saltos < 2)
         {
@@ -54,29 +56,63 @@ public class Jugador : MonoBehaviour
             enSuelo = false;
         }
 
-       /* if (!enSuelo && rb.linearVelocity.y < 0)
-        {
-            animator.SetBool("Caer", true);
-        }
-        else
-        {
-            animator.SetBool("Caer", false);
-        }*/
+        /* if (!enSuelo && rb.linearVelocity.y < 0)
+         {
+             animator.SetBool("Caer", true);
+         }
+         else
+         {
+             animator.SetBool("Caer", false);
+         }*/
 
-       // animator.SetBool("Correr", input.x != 0);
+        // animator.SetBool("Correr", input.x != 0);
 
         RaycastHit2D hit = Physics2D.Raycast(checadorSuelo.position, Vector2.down, 0.2f, suelo);
 
-        if (Keyboard.current.qKey.wasPressedThisFrame)
+
+        if (Keyboard.current != null && Keyboard.current.qKey.wasPressedThisFrame)
         {
-            RaycastHit2D Golpe = Physics2D.CircleCast(golpe.position, radioGolpe, Vector2.right, 2f);
-            if(Golpe.collider != null)
+            Collider2D[] enemigos = Physics2D.OverlapCircleAll(
+                golpe.position,
+                radioGolpe
+            );
+
+            bool golpeAcertado = false;
+
+            int danoFinal = dano;
+
+            if (poderJugador != null)
             {
-                Debug.Log("Le pegaste a " + Golpe.collider.name);
-                vidaEnemigo.vida = vidaEnemigo.vida - 10;
+                danoFinal = poderJugador.ObtenerDano(dano);
             }
 
+            foreach (Collider2D enemigo in enemigos)
+            {
+                VidaEnemigo vidaEnemigo =
+                    enemigo.GetComponentInParent<VidaEnemigo>();
+
+                if (vidaEnemigo != null && vidaEnemigo.VidaActual > 0)
+                {
+                    vidaEnemigo.DanoRecibido(danoFinal);
+
+                    golpeAcertado = true;
+
+                    Debug.Log("Golpe acertado. Daño: " + danoFinal);
+
+                    break;
+                }
+            }
+
+            if (poderJugador != null)
+            {
+                if (golpeAcertado || danoFinal == poderJugador.DanoPotenciado)
+                {
+                    poderJugador.GolpeAcertado();
+                }
+            }
         }
+
+
         Debug.DrawRay(checadorSuelo.position, Vector2.down * 0.2f, Color.red);
 
         enSuelo = hit.collider != null;
@@ -85,6 +121,5 @@ public class Jugador : MonoBehaviour
         {
             saltos = 0;
         }
-
     }
 }

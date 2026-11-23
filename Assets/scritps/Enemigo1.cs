@@ -11,13 +11,13 @@ public class Enemigo1 : MonoBehaviour
     [SerializeField] private int damageAmount = 10;
     [SerializeField] private float attackCooldown = 1f;
 
-    [Header("Drop de Item")]
-    [SerializeField] private GameObject itemDropPrefab; // Prefab del item que va a soltar
+    //[Header("Drop de Item")]
+    //[SerializeField] private GameObject itemDropPrefab; // Prefab del item que va a soltar
 
     private Transform playerTransform;
     private float lastAttackTime;
 
-    public float vida = 50f; //
+    //public float vida = 50f; //
     public GameObject Enemigo; //[cite: 1]
 
     private void Start()
@@ -40,10 +40,10 @@ public class Enemigo1 : MonoBehaviour
             FollowPlayer();
         }
 
-        if (vida <= 0) //[cite: 1]
+        /*if (vida <= 0) //[cite: 1]
         {
             Muerte();
-        }
+        }*/
     }
 
     private void FollowPlayer()
@@ -93,14 +93,11 @@ public class Enemigo1 : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, detectionRange);
     }
 
-    public void Muerte() //[cite: 1]
+    /*public void Muerte() //[cite: 1]
     {
         // Genera el item en la posición actual del enemigo antes de destruirlo
-        if (itemDropPrefab != null)
-        {
-            Instantiate(itemDropPrefab, transform.position, Quaternion.identity);
-        }
+        
 
         GameObject.Destroy(Enemigo); //[cite: 1]
-    }
+    }*/
 }
