@@ -63,7 +63,7 @@ public class JugadorVida : MonoBehaviour
     {
         if (TextoVida != null)
         {
-            TextoVida.text = "Vida: " + currentHealth +
+            TextoVida.text = "         " + currentHealth +
                              " / " + maxHealth;
         }
     }

@@ -114,12 +114,12 @@ public class PoderJugador : MonoBehaviour
 
         if (poderActivo)
         {
-            TextoPoder.text = "PODER: " + golpesRestantes +
+            TextoPoder.text = "     " + golpesRestantes +
                               " / " + GolpesConPoder;
         }
         else
         {
-            TextoPoder.text = "PODER: " + golpesAcumulados +
+            TextoPoder.text = "     " + golpesAcumulados +
                               " / " + GolpesParaCargar;
         }
     }
