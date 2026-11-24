@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 868591068671419473}
   - component: {fileID: 5498068238728011898}
   - component: {fileID: 145650752439273131}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EnemigoBowser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -233,7 +233,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8125672169270305636}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PuntoDisparo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -264,7 +264,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 921490906289873062}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ChecadorSuelo
   m_TagString: Untagged
   m_Icon: {fileID: 0}

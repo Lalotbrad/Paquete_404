@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6760234337510293343}
   - component: {fileID: 3261366143389151815}
   - component: {fileID: 1143122504862097791}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ZonaDialogo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 7103745008104467515}
   - component: {fileID: 4355799243717726185}
   - component: {fileID: 4935341353432580815}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EnemigoDialogo
   m_TagString: Untagged
   m_Icon: {fileID: 0}

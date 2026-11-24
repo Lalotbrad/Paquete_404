@@ -306,6 +306,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dda8412fe6f458c489b13455d9341c1c, type: 3}
+--- !u!114 &667191812 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8176198304435449862, guid: dda8412fe6f458c489b13455d9341c1c, type: 3}
+  m_PrefabInstance: {fileID: 667191811}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb06bfa406b0c874f8716bd81d701b6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SeleccionArma
 --- !u!1001 &931548229
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -397,6 +408,22 @@ PrefabInstance:
     - target: {fileID: 2438858551981813387, guid: 60d3b2f991d557b4cb9810bb351cf7ae, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5871405756637317117, guid: 60d3b2f991d557b4cb9810bb351cf7ae, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 667191812}
+    - target: {fileID: 5871405756637317117, guid: 60d3b2f991d557b4cb9810bb351cf7ae, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ElegirPistola
+      objectReference: {fileID: 0}
+    - target: {fileID: 9205953392312228243, guid: 60d3b2f991d557b4cb9810bb351cf7ae, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 667191812}
+    - target: {fileID: 9205953392312228243, guid: 60d3b2f991d557b4cb9810bb351cf7ae, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ElegirGranada
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
