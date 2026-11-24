@@ -1,4 +1,3 @@
-
 using UnityEngine;
 using TMPro;
 
@@ -18,6 +17,19 @@ public class PoderJugador : MonoBehaviour
 
     private void Start()
     {
+        // Recuperar el poder guardado al cambiar de nivel
+        if (GameManager.Instance != null)
+        {
+            golpesAcumulados =
+                GameManager.Instance.GolpesAcumulados;
+
+            golpesRestantes =
+                GameManager.Instance.GolpesRestantes;
+
+            poderActivo =
+                GameManager.Instance.PoderActivo;
+        }
+
         ActualizarContador();
     }
 
@@ -29,6 +41,11 @@ public class PoderJugador : MonoBehaviour
         }
 
         return danoNormal;
+    }
+
+    public bool PoderActivo()
+    {
+        return poderActivo;
     }
 
     public void GolpeAcertado()
@@ -52,6 +69,9 @@ public class PoderJugador : MonoBehaviour
             }
         }
 
+        // Guardar los cambios en el GameManager
+        GuardarPoder();
+
         ActualizarContador();
     }
 
@@ -72,6 +92,21 @@ public class PoderJugador : MonoBehaviour
         Debug.Log("Poder terminado. Daño normal restaurado.");
     }
 
+    private void GuardarPoder()
+    {
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.GolpesAcumulados =
+                golpesAcumulados;
+
+            GameManager.Instance.GolpesRestantes =
+                golpesRestantes;
+
+            GameManager.Instance.PoderActivo =
+                poderActivo;
+        }
+    }
+
     private void ActualizarContador()
     {
         if (TextoPoder == null)
@@ -79,11 +114,13 @@ public class PoderJugador : MonoBehaviour
 
         if (poderActivo)
         {
-            TextoPoder.text = "PODER: " + golpesRestantes + " / " + GolpesConPoder;
+            TextoPoder.text = "PODER: " + golpesRestantes +
+                              " / " + GolpesConPoder;
         }
         else
         {
-            TextoPoder.text = "PODER: " + golpesAcumulados + " / " + GolpesParaCargar;
+            TextoPoder.text = "PODER: " + golpesAcumulados +
+                              " / " + GolpesParaCargar;
         }
     }
 }

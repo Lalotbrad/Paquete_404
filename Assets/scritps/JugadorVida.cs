@@ -1,4 +1,3 @@
-
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
@@ -19,20 +18,38 @@ public class JugadorVida : MonoBehaviour
 
     private void Start()
     {
-        currentHealth = maxHealth;
+        // Recuperar la vida guardada al cambiar de nivel
+        if (GameManager.Instance != null)
+        {
+            maxHealth = GameManager.Instance.VidaMaxima;
+            currentHealth = GameManager.Instance.VidaActual;
+        }
+        else
+        {
+            currentHealth = maxHealth;
+        }
+
         ActualizarVida();
     }
 
     public void TakeDamage(int amount)
     {
-        if (muerto)
+        if (muerto || amount <= 0)
             return;
 
-        currentHealth -= amount;
-
-        currentHealth = Mathf.Max(currentHealth, 0);
+        // Evitar valores negativos o desbordamientos
+        currentHealth = Mathf.Max(
+            0,
+            currentHealth - Mathf.Min(amount, currentHealth)
+        );
 
         Debug.Log($"Salud restante del jugador: {currentHealth}");
+
+        // Guardar la vida actual en el GameManager
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.VidaActual = currentHealth;
+        }
 
         ActualizarVida();
 
@@ -46,7 +63,8 @@ public class JugadorVida : MonoBehaviour
     {
         if (TextoVida != null)
         {
-            TextoVida.text = "Vida: " + currentHealth + " / " + maxHealth;
+            TextoVida.text = "Vida: " + currentHealth +
+                             " / " + maxHealth;
         }
     }
 
@@ -85,8 +103,16 @@ public class JugadorVida : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(TiempoReinicio);
 
+        // Restaurar vida, poder y selección de arma
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.ReiniciarDespuesDeMorir();
+        }
+
+        // Restaurar el tiempo del juego
         Time.timeScale = 1f;
 
+        // Reiniciar el nivel actual
         SceneManager.LoadScene(
             SceneManager.GetActiveScene().buildIndex
         );

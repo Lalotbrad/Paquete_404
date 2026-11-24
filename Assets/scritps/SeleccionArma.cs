@@ -16,15 +16,37 @@ public class SeleccionArma : MonoBehaviour
 
     private void Start()
     {
-        // Desactivar controles al comenzar el nivel
-        jugador.enabled = false;
+        // Desactivar las armas al iniciar
         disparo.enabled = false;
         lanzarGranada.enabled = false;
 
-        // Mostrar el menú de selección
+        // Comprobar si el jugador ya eligió un arma
+        if (GameManager.Instance != null)
+        {
+            int armaGuardada =
+                GameManager.Instance.ArmaSeleccionada;
+
+            if (armaGuardada == 1)
+            {
+                // Recuperar la pistola
+                ElegirPistola();
+                return;
+            }
+            else if (armaGuardada == 2)
+            {
+                // Recuperar las granadas
+                ElegirGranada();
+                return;
+            }
+        }
+
+        // Si no tiene arma, mostrar el menú de selección
+        jugador.enabled = false;
+        armaSeleccionada = false;
+
         MenuSeleccion.SetActive(true);
 
-        armaSeleccionada = false;
+        // Pausar el juego mientras elige un arma
         Time.timeScale = 0f;
     }
 
@@ -37,6 +59,12 @@ public class SeleccionArma : MonoBehaviour
 
         disparo.enabled = true;
         lanzarGranada.enabled = false;
+
+        // Guardar el arma seleccionada
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.ArmaSeleccionada = 1;
+        }
 
         ComenzarNivel();
     }
@@ -51,13 +79,24 @@ public class SeleccionArma : MonoBehaviour
         disparo.enabled = false;
         lanzarGranada.enabled = true;
 
+        // Guardar el arma seleccionada
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.ArmaSeleccionada = 2;
+        }
+
         ComenzarNivel();
     }
 
     private void ComenzarNivel()
     {
+        // Activar los controles del jugador
         jugador.enabled = true;
+
+        // Ocultar el menú de selección
         MenuSeleccion.SetActive(false);
+
+        // Reanudar el juego
         Time.timeScale = 1f;
     }
 }
