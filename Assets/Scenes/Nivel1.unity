@@ -1069,6 +1069,14 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5092403315157394680, guid: 1061132c5f6360d4e9ca39ed46c5218e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6381810818236192485, guid: 1061132c5f6360d4e9ca39ed46c5218e, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 369eb7a7b550edf4f816c8befe996590, type: 2}
     - target: {fileID: 6513321567126377449, guid: 1061132c5f6360d4e9ca39ed46c5218e, type: 3}
       propertyPath: TextoPoder
       value: 
