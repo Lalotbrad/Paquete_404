@@ -21,7 +21,7 @@ public class Disparo : MonoBehaviour
 
     private void Update()
     {
-        if (Keyboard.current != null && Keyboard.current.zKey.wasPressedThisFrame)
+        if (Keyboard.current != null && Keyboard.current.xKey.wasPressedThisFrame)
             Disparar();
     }
 

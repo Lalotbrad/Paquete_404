@@ -20,7 +20,7 @@ public class LanzarGranada : MonoBehaviour
 
     private void Update()
     {
-        if (Keyboard.current != null && Keyboard.current.gKey.wasPressedThisFrame)
+        if (Keyboard.current != null && Keyboard.current.xKey.wasPressedThisFrame)
             Lanzar();
     }
 

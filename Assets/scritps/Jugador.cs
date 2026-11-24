@@ -72,7 +72,7 @@ public class Jugador : MonoBehaviour
         }
 
         // Ataque cuerpo a cuerpo con Q
-        if (Keyboard.current != null && Keyboard.current.qKey.wasPressedThisFrame)
+        if (Keyboard.current != null && Keyboard.current.cKey.wasPressedThisFrame)
             Atacar();
 
         ComprobarSuelo();
