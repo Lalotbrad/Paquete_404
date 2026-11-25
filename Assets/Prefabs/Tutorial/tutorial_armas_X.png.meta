@@ -1,25 +1,25 @@
 fileFormatVersion: 2
-guid: cfa8960ca361c48a09b70cd0bff2f6a3
+guid: 288ca9504b35f4e6fabe1d6d79cf0d38
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6109743944026668312
-    second: tutorial_armas_C_0
+      213: 4957001784361880213
+    second: tutorial_armas_X_0
   - first:
-      213: 795706962218348481
-    second: tutorial_armas_C_1
+      213: 1011582362400916264
+    second: tutorial_armas_X_1
   - first:
-      213: -7734041748548161700
-    second: tutorial_armas_C_2
+      213: 576864826720806105
+    second: tutorial_armas_X_2
   - first:
-      213: -7062407034922310138
-    second: tutorial_armas_C_3
+      213: 5864219655353127840
+    second: tutorial_armas_X_3
   - first:
-      213: 754552043116335780
-    second: tutorial_armas_C_4
+      213: 3999240441940704025
+    second: tutorial_armas_X_4
   - first:
-      213: 3210045105057886220
-    second: tutorial_armas_C_5
+      213: -3389502142596046081
+    second: tutorial_armas_X_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -115,7 +115,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tutorial_armas_C_0
+      name: tutorial_armas_X_0
       rect:
         serializedVersion: 2
         x: 0
@@ -130,14 +130,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8e242b3f044d53ba0800000000000000
-      internalID: -6109743944026668312
+      spriteID: 59a0edb0cdecac440800000000000000
+      internalID: 4957001784361880213
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tutorial_armas_C_1
+      name: tutorial_armas_X_1
       rect:
         serializedVersion: 2
         x: 360
@@ -152,14 +152,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1cf645c244bea0b00800000000000000
-      internalID: 795706962218348481
+      spriteID: 82305fb8cccd90e00800000000000000
+      internalID: 1011582362400916264
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tutorial_armas_C_2
+      name: tutorial_armas_X_2
       rect:
         serializedVersion: 2
         x: 644
@@ -174,14 +174,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c5feeb3a10a2ba490800000000000000
-      internalID: -7734041748548161700
+      spriteID: 9d46c18e08f610800800000000000000
+      internalID: 576864826720806105
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tutorial_armas_C_3
+      name: tutorial_armas_X_3
       rect:
         serializedVersion: 2
         x: 426
@@ -196,14 +196,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6066c30583a4dfd90800000000000000
-      internalID: -7062407034922310138
+      spriteID: 0a3df22e4b4e16150800000000000000
+      internalID: 5864219655353127840
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tutorial_armas_C_4
+      name: tutorial_armas_X_4
       rect:
         serializedVersion: 2
         x: 923
@@ -218,14 +218,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4a29e7ed515b87a00800000000000000
-      internalID: 754552043116335780
+      spriteID: 91b70493ef7208730800000000000000
+      internalID: 3999240441940704025
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tutorial_armas_C_5
+      name: tutorial_armas_X_5
       rect:
         serializedVersion: 2
         x: 327
@@ -240,8 +240,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c00f4f7f30f5c8c20800000000000000
-      internalID: 3210045105057886220
+      spriteID: ff2232972c116f0d0800000000000000
+      internalID: -3389502142596046081
       vertices: []
       indices: 
       edges: []
@@ -260,12 +260,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      tutorial_armas_C_0: -6109743944026668312
-      tutorial_armas_C_1: 795706962218348481
-      tutorial_armas_C_2: -7734041748548161700
-      tutorial_armas_C_3: -7062407034922310138
-      tutorial_armas_C_4: 754552043116335780
-      tutorial_armas_C_5: 3210045105057886220
+      tutorial_armas_X_0: 4957001784361880213
+      tutorial_armas_X_1: 1011582362400916264
+      tutorial_armas_X_2: 576864826720806105
+      tutorial_armas_X_3: 5864219655353127840
+      tutorial_armas_X_4: 3999240441940704025
+      tutorial_armas_X_5: -3389502142596046081
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

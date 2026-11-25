@@ -1,25 +1,25 @@
 fileFormatVersion: 2
-guid: bbfbcd02ee8e64e6fa2c1bcfa4a64ed8
+guid: a6b2e08dca7a249d093100163fea0d9b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2094817364496631313
-    second: tutorial_golpear_X_0
+      213: -1909554322502553733
+    second: tutorial_golpear_C_0
   - first:
-      213: 1621003813794481899
-    second: tutorial_golpear_X_1
+      213: -2881027831338646099
+    second: tutorial_golpear_C_1
   - first:
-      213: -3348442491046029544
-    second: tutorial_golpear_X_2
+      213: 5879569332786139077
+    second: tutorial_golpear_C_2
   - first:
-      213: 1027175153263621096
-    second: tutorial_golpear_X_3
+      213: -8337324961392146834
+    second: tutorial_golpear_C_3
   - first:
-      213: 6997478479883799127
-    second: tutorial_golpear_X_4
+      213: -1900059391159867810
+    second: tutorial_golpear_C_4
   - first:
-      213: 6939740261941055534
-    second: tutorial_golpear_X_5
+      213: -1837408005129896550
+    second: tutorial_golpear_C_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -115,7 +115,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tutorial_golpear_X_0
+      name: tutorial_golpear_C_0
       rect:
         serializedVersion: 2
         x: 61
@@ -130,14 +130,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fe9bbdfa4b6bde2e0800000000000000
-      internalID: -2094817364496631313
+      spriteID: b7f6ceff576ef75e0800000000000000
+      internalID: -1909554322502553733
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tutorial_golpear_X_1
+      name: tutorial_golpear_C_1
       rect:
         serializedVersion: 2
         x: 103
@@ -152,14 +152,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: be606c45166fe7610800000000000000
-      internalID: 1621003813794481899
+      spriteID: da5cb05a3788408d0800000000000000
+      internalID: -2881027831338646099
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tutorial_golpear_X_2
+      name: tutorial_golpear_C_2
       rect:
         serializedVersion: 2
         x: 263
@@ -174,14 +174,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 81790629b41f781d0800000000000000
-      internalID: -3348442491046029544
+      spriteID: 5cf8ff8282d689150800000000000000
+      internalID: 5879569332786139077
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tutorial_golpear_X_3
+      name: tutorial_golpear_C_3
       rect:
         serializedVersion: 2
         x: 0
@@ -196,14 +196,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8e3b2641c52414e00800000000000000
-      internalID: 1027175153263621096
+      spriteID: e664933ee1fdb4c80800000000000000
+      internalID: -8337324961392146834
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tutorial_golpear_X_4
+      name: tutorial_golpear_C_4
       rect:
         serializedVersion: 2
         x: 183
@@ -218,14 +218,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 75a0aec6a990c1160800000000000000
-      internalID: 6997478479883799127
+      spriteID: e5665c9fc02a1a5e0800000000000000
+      internalID: -1900059391159867810
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tutorial_golpear_X_5
+      name: tutorial_golpear_C_5
       rect:
         serializedVersion: 2
         x: 422
@@ -240,8 +240,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e20197afff8ee4060800000000000000
-      internalID: 6939740261941055534
+      spriteID: a9df5c287273086e0800000000000000
+      internalID: -1837408005129896550
       vertices: []
       indices: 
       edges: []
@@ -260,12 +260,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      tutorial_golpear_X_0: -2094817364496631313
-      tutorial_golpear_X_1: 1621003813794481899
-      tutorial_golpear_X_2: -3348442491046029544
-      tutorial_golpear_X_3: 1027175153263621096
-      tutorial_golpear_X_4: 6997478479883799127
-      tutorial_golpear_X_5: 6939740261941055534
+      tutorial_golpear_C_0: -1909554322502553733
+      tutorial_golpear_C_1: -2881027831338646099
+      tutorial_golpear_C_2: 5879569332786139077
+      tutorial_golpear_C_3: -8337324961392146834
+      tutorial_golpear_C_4: -1900059391159867810
+      tutorial_golpear_C_5: -1837408005129896550
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
