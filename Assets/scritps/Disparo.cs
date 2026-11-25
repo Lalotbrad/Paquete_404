@@ -10,19 +10,29 @@ public class Disparo : MonoBehaviour
 
     [Header("Animación")]
     public Animator animator;
+    private PoderJugador poderJugador;
 
     private void Awake()
     {
-        if (animator == null && Jugador != null)
-            animator = Jugador.GetComponent<Animator>();
         if (Jugador == null)
             Jugador = transform;
+        if (animator == null)
+            animator = Jugador.GetComponent<Animator>();
+        poderJugador = GetComponent<PoderJugador>();
     }
 
     private void Update()
     {
-        if (Keyboard.current != null && Keyboard.current.xKey.wasPressedThisFrame)
+        // Bloquear el disparo durante la fase de poder
+        if (poderJugador != null && poderJugador.PoderActivo())
+            return;
+
+        // Disparar únicamente en estado normal
+        if (Keyboard.current != null &&
+            Keyboard.current.xKey.wasPressedThisFrame)
+        {
             Disparar();
+        }
     }
 
     private void Disparar()
@@ -47,15 +57,7 @@ public class Disparo : MonoBehaviour
             Debug.LogWarning("El prefab del proyectil necesita el script Proyectil y Rigidbody2D asignado.");
         }
 
-        if (animator != null && TieneTrigger("Disparo"))
-            animator.SetTrigger("Disparo");
-    }
-
-    private bool TieneTrigger(string nombre)
-    {
-        foreach (AnimatorControllerParameter p in animator.parameters)
-            if (p.name == nombre && p.type == AnimatorControllerParameterType.Trigger)
-                return true;
-        return false;
+        if (animator != null)
+            animator.SetTrigger("Disparar");
     }
 }

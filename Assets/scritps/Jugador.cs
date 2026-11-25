@@ -53,11 +53,23 @@ public class Jugador : MonoBehaviour
 
         // Girar al personaje hacia la dirección en la que se mueve.
         if (input.x > 0.01f)
-            transform.localScale = new Vector3(1f, 1f, 1f);
+        {
+            transform.localScale = new Vector3(
+                Mathf.Abs(transform.localScale.x),
+                transform.localScale.y,
+                transform.localScale.z
+            );
+        }
         else if (input.x < -0.01f)
-            transform.localScale = new Vector3(-1f, 1f, 1f);
+        {
+            transform.localScale = new Vector3(
+                -Mathf.Abs(transform.localScale.x),
+                transform.localScale.y,
+                transform.localScale.z
+            );
+        }
 
-        ActualizarAnimaciones(input);
+        ComprobarSuelo();
 
         // Doble salto
         if (saltar != null && saltar.action != null &&
@@ -67,26 +79,21 @@ public class Jugador : MonoBehaviour
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, fuerzaSalto);
             enSuelo = false;
 
-            SetBool("EnSuelo", false);
-            SetTrigger("Saltar");
+
         }
 
-        // Ataque cuerpo a cuerpo con Q
+        // Ataque cuerpo a cuerpo con C
         if (Keyboard.current != null && Keyboard.current.cKey.wasPressedThisFrame)
             Atacar();
 
-        ComprobarSuelo();
+        ActualizarAnimaciones();
     }
 
-    private void ActualizarAnimaciones(Vector2 input)
+    private void ActualizarAnimaciones()
     {
-        bool estaCaminando = Mathf.Abs(input.x) > 0.01f;
-        bool estaEnNahual = poderJugador != null && poderJugador.PoderActivo();
-
-        SetBool("Correr", estaCaminando);
-        SetBool("EnSuelo", enSuelo);
-        SetFloat("VelY", rb.linearVelocity.y);
-        SetBool("Nahual", estaEnNahual);
+        if (animator == null) return;
+        animator.SetFloat("Velocidad", Mathf.Abs(rb.linearVelocity.x));
+        animator.SetBool("EnSuelo", enSuelo);
     }
 
     private void ComprobarSuelo()
@@ -97,17 +104,10 @@ public class Jugador : MonoBehaviour
             checadorSuelo.position, Vector2.down, 0.2f, suelo);
 
         Debug.DrawRay(checadorSuelo.position, Vector2.down * 0.2f, Color.red);
-        enSuelo = hit.collider != null;
+        enSuelo = hit.collider != null && rb.linearVelocity.y <= 0.01f;
 
-        if (enSuelo && rb.linearVelocity.y <= 0.01f)
-        {
+        if (enSuelo)
             saltos = 0;
-            SetBool("EnSuelo", true);
-        }
-        else
-        {
-            SetBool("EnSuelo", false);
-        }
     }
 
     private void Atacar()
@@ -135,40 +135,14 @@ public class Jugador : MonoBehaviour
             }
         }
 
-        // Animación de ataque: normal o nahual.
-        if (poderJugador != null && poderJugador.PoderActivo())
-            SetTrigger("MorderNahual");
-        else
-            SetTrigger("Proyectada");
+        // Seleccionar la animación antes de consumir el poder.
+        if (animator != null)
+            animator.SetTrigger(poderJugador != null && poderJugador.PoderActivo()
+                ? "GolpePoder" : "Golpear");
 
         // Conserva el comportamiento de carga/consumo del poder.
         if (poderJugador != null && (golpeAcertado || poderJugador.PoderActivo()))
             poderJugador.GolpeAcertado();
     }
 
-    private void SetBool(string parametro, bool valor)
-    {
-        if (animator != null && TieneParametro(parametro, AnimatorControllerParameterType.Bool))
-            animator.SetBool(parametro, valor);
-    }
-
-    private void SetFloat(string parametro, float valor)
-    {
-        if (animator != null && TieneParametro(parametro, AnimatorControllerParameterType.Float))
-            animator.SetFloat(parametro, valor);
-    }
-
-    private void SetTrigger(string parametro)
-    {
-        if (animator != null && TieneParametro(parametro, AnimatorControllerParameterType.Trigger))
-            animator.SetTrigger(parametro);
-    }
-
-    private bool TieneParametro(string parametro, AnimatorControllerParameterType tipo)
-    {
-        foreach (AnimatorControllerParameter p in animator.parameters)
-            if (p.name == parametro && p.type == tipo)
-                return true;
-        return false;
-    }
 }

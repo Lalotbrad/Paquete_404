@@ -128,8 +128,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.02, y: 1.21, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.5, y: 3.2579188, z: 0.678733}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4242784061232087857}
   - {fileID: 7302765268141134272}
@@ -183,13 +183,13 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 5
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 0.21161151, b: 1, a: 1}
+  m_Sprite: {fileID: 8961046758033588176, guid: 00f52973baad35749a89085ed5e57588, type: 3}
+  m_Color: {r: 0.96981126, g: 0.96981126, b: 0.96981126, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
+  m_DrawMode: 1
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
@@ -205,7 +205,7 @@ Animator:
   m_GameObject: {fileID: 9162064207258656342}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 369eb7a7b550edf4f816c8befe996590, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -255,10 +255,10 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 2.21, y: 4.8}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
-    drawMode: 0
+    drawMode: 1
     adaptiveTiling: 0
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
@@ -315,6 +315,7 @@ MonoBehaviour:
   radioGolpe: 1
   dano: 5
   golpe: {fileID: 7302765268141134272}
+  animator: {fileID: 0}
 --- !u!114 &9073022475696388873
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -345,6 +346,7 @@ MonoBehaviour:
   Proyectil: {fileID: 4009591611470323082, guid: 5505d80ea809e7347895046df59fa10d, type: 3}
   PuntoDisparo: {fileID: 1783658974841738346}
   Jugador: {fileID: 4602518432356079863}
+  animator: {fileID: 0}
 --- !u!114 &6587600800862042257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -359,6 +361,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LanzarGranada
   PrefabGranada: {fileID: 8643641097902992741, guid: e232c24016155764280aefd41f02c32f, type: 3}
   PuntoLanzamiento: {fileID: 1783658974841738346}
+  animator: {fileID: 0}
 --- !u!114 &6513321567126377449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -375,3 +378,4 @@ MonoBehaviour:
   DanoPotenciado: 50
   GolpesConPoder: 4
   TextoPoder: {fileID: 0}
+  animator: {fileID: 0}

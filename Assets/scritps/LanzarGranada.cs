@@ -11,17 +11,28 @@ public class LanzarGranada : MonoBehaviour
 
     [Header("Animación")]
     public Animator animator;
+    private PoderJugador poderJugador;
 
     private void Awake()
     {
         if (animator == null)
             animator = GetComponent<Animator>();
+        poderJugador = GetComponent<PoderJugador>();
+
     }
 
     private void Update()
     {
-        if (Keyboard.current != null && Keyboard.current.xKey.wasPressedThisFrame)
+        // Bloquear el lanzamiento durante la fase de poder
+        if (poderJugador != null && poderJugador.PoderActivo())
+            return;
+
+        // Lanzar únicamente en estado normal
+        if (Keyboard.current != null &&
+            Keyboard.current.xKey.wasPressedThisFrame)
+        {
             Lanzar();
+        }
     }
 
     private void Lanzar()
@@ -46,18 +57,9 @@ public class LanzarGranada : MonoBehaviour
             Debug.LogWarning("El prefab de granada no tiene el script Granada.");
         }
 
-        // Se dispara al lanzar la granada. Si Explosion es solo la animación
-        // del objeto explosivo, mueve este trigger al script de la granada.
-        if (animator != null && TieneTrigger("Explosion"))
-            animator.SetTrigger("Explosion");
-    }
-
-    private bool TieneTrigger(string nombre)
-    {
-        foreach (AnimatorControllerParameter p in animator.parameters)
-            if (p.name == nombre && p.type == AnimatorControllerParameterType.Trigger)
-                return true;
-        return false;
+        // Reproducir la animación del jugador.
+        if (animator != null)
+            animator.SetTrigger("LanzarGranada");
     }
 }
 

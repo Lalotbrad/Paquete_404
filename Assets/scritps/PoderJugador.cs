@@ -11,6 +11,15 @@ public class PoderJugador : MonoBehaviour
     [Header("Interfaz del poder")]
     public TextMeshProUGUI TextoPoder;
 
+    [Header("Animaciones")]
+    public Animator animator;
+
+    private void Awake()
+    {
+        if (animator == null)
+            animator = GetComponent<Animator>();
+    }
+
     private int golpesAcumulados = 0;
     private int golpesRestantes = 0;
     private bool poderActivo = false;
@@ -29,6 +38,9 @@ public class PoderJugador : MonoBehaviour
             poderActivo =
                 GameManager.Instance.PoderActivo;
         }
+
+        if (animator != null)
+            animator.SetBool("PoderActivo", poderActivo);
 
         ActualizarContador();
     }
@@ -80,6 +92,12 @@ public class PoderJugador : MonoBehaviour
         poderActivo = true;
         golpesRestantes = GolpesConPoder;
 
+        if (animator != null)
+        {
+            animator.SetBool("PoderActivo", true);
+            animator.SetTrigger("ActivarPoder");
+        }
+
         Debug.Log("¡Poder activado!");
     }
 
@@ -88,6 +106,9 @@ public class PoderJugador : MonoBehaviour
         poderActivo = false;
         golpesAcumulados = 0;
         golpesRestantes = 0;
+
+        if (animator != null)
+            animator.SetBool("PoderActivo", false);
 
         Debug.Log("Poder terminado. Daño normal restaurado.");
     }
