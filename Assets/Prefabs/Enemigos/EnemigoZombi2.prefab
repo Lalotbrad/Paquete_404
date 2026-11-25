@@ -185,7 +185,7 @@ MonoBehaviour:
   Velocidad: 2
   Jugador: {fileID: 0}
   Dano: 10
-  DistanciaAtaque: 1
+  DistanciaAtaque: 1.5
   TiempoEntreAtaques: 1.5
 --- !u!114 &1650853415401679991
 MonoBehaviour:

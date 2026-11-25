@@ -5,7 +5,7 @@ public class MainMenu : MonoBehaviour
 {
     public void Jugar()
     {
-        SceneManager.LoadScene("Nivel1");
+        SceneManager.LoadScene("Tutorial");
     }
     public void Salir()
     {
